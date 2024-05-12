@@ -1,0 +1,21 @@
+#Persistent
+SetTimer, MoveMouse, 10
+return
+
+MoveMouse:
+if (!toggle)
+    return
+if GetKeyState("Left", "P")
+    MouseMove, -5, 0, 0, R
+if GetKeyState("Right", "P")
+    MouseMove, 5, 0, 0, R
+if GetKeyState("Up", "P")
+    MouseMove, 0, -5, 0, R
+if GetKeyState("Down", "P")
+    MouseMove, 0, 5, 0, R
+return
+
+^!t::
+toggle := !toggle
+MsgBox, % toggle ? "Mouse movement enabled." : "Mouse movement disabled."
+return
